@@ -1,12 +1,9 @@
 #task1
-'''stroka = str(input('Vvedite predlozhenie:\t'))
-print(list(stroka.split(' ')))
-print(stroka[1])'''
 ########################
-str = input("Write down or insert some text:\n")
+str = input("Vvedite predlozhenie:\n")
 punctuation = ['.',',',':',';','!','?','(',')']
 wordList = str.split()
-wordDict = {}
+#wordDict = {}
 i = 0
 for word in wordList:
     if word[-1] in punctuation:
