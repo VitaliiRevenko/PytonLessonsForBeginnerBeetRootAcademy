@@ -37,9 +37,9 @@ stats["K"] увеличиваем если человек загадал кам�
 import random
 stone, scissors, paper = 1, 2, 3
 
-win = (paper, stone), (stone, scissors), (scissors, paper)
-lose = (stone, paper), (scissors, stone), (paper, scissors)
-draw = (stone, stone), (scissors, scissors), (paper, paper)
+win = (paper, stone), (stone, scissors), (scissors, paper)  #Выигрышные комбинации
+lose = (stone, paper), (scissors, stone), (paper, scissors) #Проигрышные комбинации
+draw = (stone, stone), (scissors, scissors), (paper, paper) #Комбинации ничьих
 while True:
     stats = {'stone': 0, 'scissors': 0, 'paper': 0}
     player = int(input(f'1 - Stone\n2 - Scissors\n3 - Paper\nEner the number:\t'))
@@ -50,7 +50,6 @@ while True:
         stats['scissors'] += 1
     elif player == 3:
         stats['paper'] += 1
-    stats.update()
     comb = (player, comp)
     print(f'player:\t{player}\tcomp:\t{comp}')
     for i in win:
@@ -71,5 +70,4 @@ while True:
         print(comb)
         break
     elif finish in {'й', 'Й'}:
-        print(stats)
         break
