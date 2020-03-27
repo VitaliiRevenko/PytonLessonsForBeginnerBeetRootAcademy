@@ -20,7 +20,12 @@ def make_operation(action, abc):    #Функция выполняет мате�
         for i in abc:
             answer -= i
     return (answer)
-action = str(input('Enter action(+, -, *):\t')) # Ввод действия
+action = str(input('Enter action(+, -, *):\t'))  # Ввод действия
+if action not in {'+', '-', '*'}:                # Проверка на верный введенный знак
+    raise Exception("Oops! You Enter FALSE ACTION. Try again... ")  #Вызов ошибки, в случае неверного ввода операции
 num = input('Enter numbers with a space:\t')    # Ввод чисел через пробел
-abc = tuple(map(int, num.split(' ')))           # Записываю данные от пользователя в tuple()
-print(make_operation(action, abc))              # Запись в переменную d результат функции
+try:
+    abc = tuple(map(int, num.split(' ')))  # Записываю данные от пользователя в tuple()
+    print(make_operation(action, abc))  # Запись в переменную d результат функции
+except ValueError:                      # Вызов ошибки, если введена не цифра
+    print("Oops!  That was no valid number.  Try again...")
