@@ -27,11 +27,15 @@ class Mathematician:
         return args
     def remove_positives(self, *args):
         print(f"\nIncoming data:\n", args)
+        print("Remove positives:")
         for i in args:
             if i < 0:
                 print(i, end=" "*5)
-    def filter_leaps(self):
-        pass
+    def filter_leaps(self,*args):
+        print(f"\nIncoming data:\n", args)
+        print("Filter leaps:")
+
 m = Mathematician()
 m.square_nums(7, 11, 5, 4)
 m.remove_positives(26, -11, -8, 13, -90)
+m.filter_leaps(2001, 1884, 1995, 2003, 2020)
