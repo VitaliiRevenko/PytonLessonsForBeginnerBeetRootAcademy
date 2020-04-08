@@ -16,6 +16,7 @@ class Person:
         self.lname = lname
     def printname(self):
         print(self.fname, self.lname)
+        return (self.fname, self.lname)
 class Student(Person):
     def __init__(self, fname, lname, group, course, faculty, form_of_education):
         super().__init__(fname, lname)
@@ -34,7 +35,7 @@ class Teacher(Person):
         print(self.object_of_study, self.salary)
 if __name__ == "__main__":
     student1 = Student("Revenko", "Vitalii", "201", "2", "IT", "budget")
-    #print(f"ФИО студента:\t{student1.printname()} + {student1.printname1()}")
+    #print(f"ФИО студента:\t{student1.printname()}")
     student1.printname()
     student1.printstudent()
     print("-=-" * 10)
