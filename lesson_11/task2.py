@@ -20,25 +20,25 @@ filter_leaps (берет список дат (целых) и удаляет те
         assert m.filter_leaps([2001, 1884, 1995, 2003, 2020]) == [1884, 2020]'''
 from datetime import date
 today = date.today()
-#print(today.year)
-#print("Today's date:", today)
 class Mathematician:
-    def square_nums(self, *args):
-        print(f"Incoming data:\n", args)
-        print("Square nums:")
+    def square_nums(self, args):
+        print(f"Incoming data:\n{args}")
+        new_list = []
         for i in args:
-            print(i**2, end=" "*5)
-        return args
-    def remove_positives(self, *args):
+            new_list.append(int(i**2))
+        print(f"Square nums:{new_list}")
+        return new_list
+    def remove_positives(self, args):
         print(f"\nIncoming data:\n", args)
-        print("Remove positives:")
+        new_list = []
         for i in args:
             if i < 0:
-                print(i, end=" "*5)
-    def filter_leaps(self,*args):
+                new_list.append(i)
+        print(f"Remove positives:{new_list}")
+        return new_list
+    def filter_leaps(self, args):
         print(f"\nIncoming data:\n", args)
-        print("Filter leaps:")
-        #leap_year = args[0]
+        new_list = []
         for i in args:
             '''Определить високосный год или нет
             Если год не делится на 4, значит он обычный.
@@ -52,13 +52,12 @@ class Mathematician:
             # Исключаем столетия, которые не делятся на 400
             if i % 4 != 0 or (i % 100 == 0 and i % 400 != 0):
                 pass
-                print("usual year:\t", i)
             else:
-                print("Leap year:\t", i)
+                new_list.append(i)
+        print(f"Filter leaps:{new_list}")
+        return new_list
 m = Mathematician()
-m.square_nums(7, 11, 5, 4)
-m.remove_positives(26, -11, -8, 13, -90)
-m.filter_leaps(2001, 1884, 1995, 2003, today.year)
-
-
-
+assert m.square_nums([7, 11, 5, 4]) == [49, 121, 25, 16]
+assert m.remove_positives([26, -11, -8, 13, -90]) == [-11, -8, -90]
+assert m.filter_leaps([2001, 1884, 1995, 2003, 2020]) == [1884, 2020]
+#m.filter_leaps(2001, 1884, 1995, 2003, today.year)
