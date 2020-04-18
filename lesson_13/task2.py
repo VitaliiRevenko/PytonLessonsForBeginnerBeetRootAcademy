@@ -9,4 +9,4 @@ def test(word):
     for i in word:
         res += low(i)
     return res
-print(test('BEET Root Academy'))
+print(test('BEET Root Academy 2020'))
