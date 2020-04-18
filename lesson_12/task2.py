@@ -24,12 +24,16 @@ Also, the book class should have a class variable which holds the amount of all 
 Кроме того, класс книги должен иметь переменную класса, которая содержит количество всех существующих книг.'''
 
 class Library():
+    def __init__(self, name, year, author):
+        self.name = name
+        self.year = year
+        self.author = author
     def __repr__(self):
         pass
     def __str__(self):
         return "Name: {} | year: {} | author: {}".format(self.name, self.year, self.author)
         pass
-    def new_book(self, name: str, year: int, author, *args):
+    def new_book(self, name, year, author, *args):
         self.name = name
         self.year = year
         self.author = author
