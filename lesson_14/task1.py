@@ -11,7 +11,11 @@ def logger(func):
     а так же напишет что функ был вызван с такими то параметрами.
     и вернуть из логера надо врапер а не функ
     '''
-    return func
+    def wrap(*args, **kwargs):
+        print("Running func", func.__name__, args, kwargs)
+        print(func(*args))
+        return func(*args, **kwargs)
+    return wrap
 
 @logger
 def add(x, y):
@@ -24,12 +28,6 @@ def square_all(*args):
 '''
 традиционно прошу использовать if __name__ == "__main__"
 '''
-x = 4
-y = 5
-print(add(x=4, y=5)) #Печатаем функцию add
-add_var = add(x, y)
-print(add_var)
-#print(logger(add(x, y)))
-print(square_all(4, 5)) #Печатаем функцию square_all
-square_all_func = square_all(4, 5)
-print(square_all_func)
+if __name__ == '__main__':
+    add(4, 5)
+    square_all(4, 5)
