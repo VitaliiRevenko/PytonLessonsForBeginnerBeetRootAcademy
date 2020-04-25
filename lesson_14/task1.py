@@ -6,7 +6,16 @@
 #  "add called with 4, 5"
 
 def logger(func):
-    return func
+    '''
+    надо создать врапер функцию которая примет аргс и кваргс и внутри себя вызовет func с принятыми параметрами и вернет результат выполнения этого функа
+    а так же напишет что функ был вызван с такими то параметрами.
+    и вернуть из логера надо врапер а не функ
+    '''
+    def wrap(*args, **kwargs):
+        print("Running func", func.__name__, args, kwargs)
+        print(func(*args))
+        return func(*args, **kwargs)
+    return wrap
 
 @logger
 def add(x, y):
@@ -16,12 +25,9 @@ def add(x, y):
 def square_all(*args):
     return [arg ** 2 for arg in args]
 
-x = 4
-y = 5
-print(add(x=4, y=5)) #Печатаем функцию add
-add_var = add(x, y)
-print(add_var)
-#print(logger(add(x, y)))
-print(square_all(4, 5)) #Печатаем функцию square_all
-square_all_func = square_all(4, 5)
-print(square_all_func)
+'''
+традиционно прошу использовать if __name__ == "__main__"
+'''
+if __name__ == '__main__':
+    add(4, 5)
+    square_all(4, 5)
