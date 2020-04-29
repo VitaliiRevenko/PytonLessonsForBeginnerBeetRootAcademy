@@ -28,12 +28,12 @@ def stop_words(decorator_arg1):
             f = func(function_arg1).split()
             lst = []
             for words in f:
-                for stp_words in decorator_arg1:
-                    if words == stp_words:
-                        lst.append('*')
-                lst.append(words)
+                if words in decorator_arg1:
+                    lst.append('*')
+                else:
+                    lst.append(words)
             changed_lst = " ".join(lst)
-            return func(changed_lst)
+            return changed_lst
         return wrapped
     return my_decorator
 
