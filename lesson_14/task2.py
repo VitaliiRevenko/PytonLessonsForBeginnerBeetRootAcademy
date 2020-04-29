@@ -42,4 +42,4 @@ def create_slogan(name: str) -> str:
     return f"{name} drinks pepsi in his brand new BMW !"
 
 print(create_slogan('Steve'))
-#assert create_slogan("Steve") == "Steve drinks pepsi in his brand new BMW!"
+assert create_slogan("Steve") == "Steve drinks pepsi in his brand new BMW!"
