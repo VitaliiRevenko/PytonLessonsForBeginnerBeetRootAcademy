@@ -27,7 +27,7 @@ if __name__ == '__main__':
         print("Your e-mail is valid")
     else:
         raise "NotValid E-MAIL"
-
+    assert A.validate_email("my+address@mydomain.com") == True
 
 
 
