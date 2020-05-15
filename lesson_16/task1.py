@@ -10,14 +10,14 @@ class with_index():
         self.iterable = iterable
         self.start = 0
     def __iter__(self):
+        self.start = 0
         return self
     def __next__(self):
-        try:
+        if self.start < len(self.iterable):
             result = self.iterable[self.start]
-        except IndexError:
-            raise StopIteration
-        self.start += 1
-        return self.start, result
+            self.start += 1
+            return self.start, result
+        raise StopIteration
 
 
 iterator = with_index('BeetRoot')
