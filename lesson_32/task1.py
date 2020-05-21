@@ -21,7 +21,7 @@ def client_request():
     page = requests.get(url)
     status = page.status_code   # This class of status code indicates that the client's request
                                 # was successfully received, understood, and accepted.
-    if status >= 200 and status <= 400:
+    if page.ok:
         soup = BeautifulSoup(page.text, 'html.parser')
         print(soup.prettify())
         with open("robots.txt", "w", encoding=page.encoding) as f:
