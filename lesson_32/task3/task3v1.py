@@ -9,7 +9,7 @@ import requests
 
 degree_sign = u'\N{DEGREE SIGN}'
 city = input('Enter your city:\t')
-url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=deacdad2a450245added172443c7a5d6&units=metric'.format(city)
+url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid={API}&units=metric'.format(city)
 res = requests.get(url)
 data = res.json()
 
